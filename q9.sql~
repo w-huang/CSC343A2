@@ -1,0 +1,8 @@
+SET search_path TO artistdb;
+
+UPDATE WasInBand
+SET end_year = '2014' 
+WHERE artist_id IN (SELECT artist_id FROM Artist WHERE name = 'Adam Levine' OR name = 'Mick Jagger');
+
+INSERT INTO WasInBand
+VALUES ((SELECT artist_id FROM Artist WHERE name = 'Mick Jagger'),(SELECT artist_id FROM Artist WHERE name = 'Maroon 5'), 2014, 2015);
