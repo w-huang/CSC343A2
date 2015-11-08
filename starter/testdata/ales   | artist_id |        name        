@@ -1,0 +1,57 @@
+ album_id |   sales   | artist_id |        name        
+----------+-----------+-----------+--------------------
+       55 | 100000000 |         1 | Don Henley
+       34 |  10000000 |         2 | Akon
+       61 | 150000000 |        16 | Steppenwolf
+       60 | 100000000 |        16 | Steppenwolf
+       57 | 100000000 |        16 | Steppenwolf
+       59 |  90000000 |        18 | Bryan Adams
+        2 |   1000000 |        18 | Bryan Adams
+        1 |     40000 |        18 | Bryan Adams
+        4 |   1000000 |        19 | Paul Anka
+        3 |   1000000 |        19 | Paul Anka
+        5 |  10000000 |        20 | Randy Bachman
+        8 |   1000000 |        22 | Michael Buble
+        9 |   1000000 |        23 | Leonard Cohen
+       10 |  10000000 |        24 | Celine Dion
+       11 |  10000000 |        25 | Kylie Minogue
+       13 |  10000000 |        26 | LL Cool Jay
+       12 |  10000000 |        26 | LL Cool Jay
+       14 |  10000000 |        27 | Marc Anthony
+       16 |  10000000 |        28 | Kenny Chesney
+       15 |  10000000 |        28 | Kenny Chesney
+       19 |  10000000 |        29 | Lisa Marie Presley
+       18 |  10000000 |        29 | Lisa Marie Presley
+       17 |   1000000 |        29 | Lisa Marie Presley
+       20 | 100000000 |        31 | Michael Jackson
+       22 |  10000000 |        32 | David Bowie
+       23 |  10000000 |        33 | Steven Tyler
+       25 | 100000000 |        34 | Bono
+       24 |  10000000 |        34 | Bono
+       26 |  10000000 |        35 | Taylor Swift
+       27 |   1000000 |        36 | Florence Welch
+       30 |  10000000 |        37 | John Lennon
+       29 |  10000000 |        37 | John Lennon
+       28 |  10000000 |        37 | John Lennon
+       31 |  10000000 |        38 | James Hetfield
+       32 |  10000000 |        39 | Paul McCartney
+       35 |  10000000 |        40 | Angus Young
+       36 |  10000000 |        41 | Jimi Hendrix
+       38 |  10000000 |        43 | Thomas Bangalter
+       39 |  10000000 |        44 | Pharrell Williams
+       41 |  10000000 |        45 | Ray Charles
+       40 |  10000000 |        45 | Ray Charles
+       42 |  10000000 |        46 | Luciano Pavarotti
+       43 |    100000 |        47 | Marlene Dietrich
+       44 |  10000000 |        48 | Lorde
+       45 |  10000000 |        49 | Bjork
+       46 | 100000000 |        50 | Bruce Springsteen
+       47 |  10000000 |        51 | Barbra Streisand
+       49 | 100000000 |        52 | Lady Gaga
+       48 | 100000000 |        52 | Lady Gaga
+       50 | 100000000 |        53 | Tony Bennett
+       51 |  10000000 |        54 | Alicia Keys
+       56 | 100000000 |        58 | Justin Timberlake
+       58 | 100000000 |        60 | Axl Rose
+(53 rows)
+

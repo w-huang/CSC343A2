@@ -15,9 +15,9 @@ EXCEPT
 (SELECT * FROM Solo)
 );
 
-SELECT Collab.name AS artists, avg(Collab.sales) AS avg_collab_sales
+SELECT Solo.name as artists, avg(Collab.sales) as avg_collab_sales
 FROM Solo, Collab
 WHERE Solo.artist_id = Collab.artist_id
-GROUP BY Collab.artist_id, Collab.name
-HAVING avg(Collab.sales) > all(SELECT sales FROM Solo WHERE artist_id = Collab.artist_id);
+GROUP BY Solo.artist_id
+HAVING avg(Collab.sales) > all(Solo.sales);
 
