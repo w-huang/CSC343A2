@@ -1,5 +1,5 @@
 SET search_path TO artistdb;
-CREATE VIEW AS Artist_Many_Genres(
+CREATE VIEW Artist_Many_Genres AS(
 SELECT Artist.name as artist, 'Musician/band' as capacity, count(Album.genre) as genres
 FROM Artist, Album
 WHERE Artist.artist_id = Album.artist_id
