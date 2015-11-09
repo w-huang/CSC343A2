@@ -1,8 +1,8 @@
 SET search_path TO artistdb;
-SELECT name, year, sum(sales) as total_sales
+SELECT label_name as record_label, year, sum(sales) as total_sales
 FROM RecordLabel, ProducedBy, Album
-WHERE RecordLabel.label_id = Produced_by.label_id and ProducedBy.album_id = Album.album_id
-GROUP BY label_id, year
+WHERE RecordLabel.label_id = ProducedBy.label_id and ProducedBy.album_id = Album.album_id
+GROUP BY RecordLabel.label_id, year
 HAVING sum(sales) > 0 --maybe check case if no album was made?
-ORDER BY name ASC, year ASC;
+ORDER BY label_name ASC, year ASC;
 

@@ -15,5 +15,3 @@ CREATE VIEW AS Songwriter_Many_Genres(
 --HAVING count(Album.genre) >= 3
 
 );
-
-CREATE
