@@ -4,5 +4,7 @@ SELECT year FROM Artist, Album where Artist.name = 'Steppenwolf' and Artist.arti
 
 SELECT DISTINCT name, nationality
 FROM Artist, Role
-WHERE Artist.artist_id = Role.artist_id and Role.role = 'Musician' and Extract( year FROM birthdate ) =( SELECT min(year) FROM Steppenwolf_Album_Years ) 
+WHERE Artist.artist_id = Role.artist_id and lower(Role.role) = 'musician' and Extract( year FROM birthdate ) =( SELECT min(year) FROM Steppenwolf_Album_Years ) 
 ORDER BY name ASC;
+
+DROP VIEW Steppenwolf_Album_Years CASCADE;

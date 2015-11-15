@@ -1,4 +1,3 @@
----NEEDS FIXING BASED ON PIAZZA RESPONSES: THE MAIN CONCERN IS WHETHER MICK JAGGER LEFT ROLLING STONES YEARS AGO, IN WHICH CASE WE DO NOT NEED TO UPDATE HIS END YEAR IN THE WAS_IN_BAND RELATION
 SET search_path TO artistdb;
 --- updates the WasInBand relation so that Adam Levine was w/ M5 up until 2014, and MJ was w/ R.S. til 2014. Need to check of MJ was in Rolling Stones up until 2015?
 

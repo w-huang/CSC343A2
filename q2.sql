@@ -21,3 +21,5 @@ WHERE Solo.artist_id = Collab.artist_id
 GROUP BY Collab.artist_id, Collab.name
 HAVING avg(Collab.sales) > all(SELECT sales FROM Solo WHERE artist_id = Collab.artist_id);
 
+DROP VIEW Solo CASCADE;
+DROP VIEW Collab CASCADE;
