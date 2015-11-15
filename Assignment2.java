@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.*;
 import java.util.Collections;
 
@@ -64,10 +64,38 @@ public class Assignment2 {
 	 *
 	 * @param genre  the genre to find artists for
 	 * @return       a sorted list of artist names
+
+		QUERY:
+		
+		SELECT Artist.name FROM Artist,Album,Genre 
+		WHERE Album.artist_id = Artist.artist_id 
+		AND Genre.genre_id = Album.genre_id 
+		AND Genre.genre = INPUT;	 
+	 
 	 */
 	public ArrayList<String> findArtistsInGenre(String genre) {
-
-		return null;
+		
+		StringBuffer query = new StringBuffer();
+		//Create the query to execute		
+		StringBuffer setup = new StringBuffer();
+		setup.append("SET search_path TO artistdb");
+		query.append("SELECT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = ");
+		query.append(genre);
+		//Execute the Query
+		try{
+			this.connection.prepareStatement(setup.toString()).execute();
+			ResultSet rs = this.connection.prepareStatement(query.toString()).executeQuery();
+			ArrayList<String> result = new ArrayList<String>();
+			while(rs.next()){
+				result.add(rs.getObject(0).toString());
+			}
+			Collections.sort(result);
+			return result;
+	
+		}catch (SQLException se) {
+			System.err.println("SQL Exception. <Message>: " + se.getMessage());
+			return null;
+		}
 	}
 
 	/**
@@ -135,8 +163,8 @@ public class Assignment2 {
 		Assignment2 a2 = new Assignment2();
 		
 		/* TODO: Change the database name and username to your own here. */
-		a2.connectDB("jdbc:postgresql://localhost:5432/csc343h-bogdan",
-		             "bogdan",
+		a2.connectDB("jdbc:postgresql://localhost:5432/csc343h-c5huangx",
+		             "c5huangx",
 		             "");
 		
                 System.err.println("\n----- ArtistsInGenre -----");
