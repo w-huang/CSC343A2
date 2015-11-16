@@ -79,16 +79,10 @@ public class Assignment2 {
 		//Create the query to execute		
 		StringBuffer setup = new StringBuffer();
 		setup.append("SET search_path TO artistdb;");
-<<<<<<< HEAD
 		query.append("SELECT DISTINCT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = '");
 		query.append(genre);
 		query.append("';");
-=======
-		query.append("SELECT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = ' ");
-		
-		query.append(genre);
-				query.append("'");
->>>>>>> 2bfb2128698a07660836fa95272a9b408c82fd82
+
 		//Execute the Query
 		try{
 			this.connection.prepareStatement(setup.toString()).execute();
@@ -96,12 +90,7 @@ public class Assignment2 {
 			ArrayList<String> result = new ArrayList<String>();
 			int count = 0;
 			while(rs.next()){
-<<<<<<< HEAD
 				result.add(rs.getObject(1).toString());
-=======
-				++count;
-				result.add(rs.getObject(0).toString());
->>>>>>> 2bfb2128698a07660836fa95272a9b408c82fd82
 			}
 			
 			System.err.println(count);

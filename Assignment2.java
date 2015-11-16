@@ -88,12 +88,9 @@ public class Assignment2 {
 			this.connection.prepareStatement(setup.toString()).execute();
 			ResultSet rs = this.connection.prepareStatement(query.toString()).executeQuery();
 			ArrayList<String> result = new ArrayList<String>();
-			int count = 0;
 			while(rs.next()){
 				result.add(rs.getObject(1).toString());
 			}
-			
-			System.err.println(count);
 			Collections.sort(result);
 			return result;
 	
