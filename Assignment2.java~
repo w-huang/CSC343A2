@@ -212,19 +212,17 @@ AND	Album.album_id = BelongsToAlbum.album_id
 		ArrayList<String> sw1 = this.findSongwriters(artist1);
 		ArrayList<String> collabs2 = this.findCollaborators(artist2);
 		ArrayList<String> sw2 = this.findSongwriters(artist2);
+
+		//if(collabs1 == null || collabs2 == null || sw1 == null || sw2 == null) return null;
+		collabs1.addAll(sw1);
+		collabs2.addAll(sw2);
 		
-		ArrayList<String> commCollabs = new ArrayList<String>();
-		for(int i = 0; i < collabs1.size(); ++i){
-			if(collabs2.contains(collabs1.get(i))) commCollabs.add(collabs1.get(i));		
-		}
 		ArrayList<String> commAcqs = new ArrayList<String>();
-		for(int i = 0; i < sw1.size(); ++i){
-			if(sw2.contains(sw1.get(i))) commAcqs.add(sw2.get(i));		
+		for(int i = 0; i < collabs1.size(); ++i){
+			for(int j = 0; j < collabs2.size(); ++j){
+				if(collabs1.get(i) == collabs2.get(j)) commAcqs.add(collabs1.get(i));			
+			}	
 		}
-		
-		for(int i = 0; i < commCollabs.size(); ++i){
-			if(!commAcqs.contains(commCollabs.get(i))) commAcqs.add(commCollabs.get(i));	
-		}		
 		
 		return commAcqs;				
 		
