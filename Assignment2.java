@@ -82,14 +82,18 @@ public class Assignment2 {
 		query.append("SELECT DISTINCT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = '");
 		query.append(genre);
 		query.append("';");
+
 		//Execute the Query
 		try{
 			this.connection.prepareStatement(setup.toString()).execute();
 			ResultSet rs = this.connection.prepareStatement(query.toString()).executeQuery();
 			ArrayList<String> result = new ArrayList<String>();
+			int count = 0;
 			while(rs.next()){
 				result.add(rs.getObject(1).toString());
 			}
+			
+			System.err.println(count);
 			Collections.sort(result);
 			return result;
 	
@@ -242,6 +246,8 @@ AND	Album.album_id = BelongsToAlbum.album_id
 		
                 System.err.println("\n----- ArtistsInGenre -----");
                 ArrayList<String> res = a2.findArtistsInGenre("Rock");
+                if(res == null){
+                	System.err.println("res set is empty");}
                 for (String s : res) {
                   System.err.println(s);
                 }

@@ -79,17 +79,32 @@ public class Assignment2 {
 		//Create the query to execute		
 		StringBuffer setup = new StringBuffer();
 		setup.append("SET search_path TO artistdb;");
+<<<<<<< HEAD
 		query.append("SELECT DISTINCT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = '");
 		query.append(genre);
 		query.append("';");
+=======
+		query.append("SELECT Artist.name FROM Artist, Album, Genre WHERE Album.artist_id = Artist.artist_id AND Genre.genre_id = Album.genre_id AND Genre.genre = ' ");
+		
+		query.append(genre);
+				query.append("'");
+>>>>>>> 2bfb2128698a07660836fa95272a9b408c82fd82
 		//Execute the Query
 		try{
 			this.connection.prepareStatement(setup.toString()).execute();
 			ResultSet rs = this.connection.prepareStatement(query.toString()).executeQuery();
 			ArrayList<String> result = new ArrayList<String>();
+			int count = 0;
 			while(rs.next()){
+<<<<<<< HEAD
 				result.add(rs.getObject(1).toString());
+=======
+				++count;
+				result.add(rs.getObject(0).toString());
+>>>>>>> 2bfb2128698a07660836fa95272a9b408c82fd82
 			}
+			
+			System.err.println(count);
 			Collections.sort(result);
 			return result;
 	
@@ -212,17 +227,19 @@ AND	Album.album_id = BelongsToAlbum.album_id
 		ArrayList<String> sw1 = this.findSongwriters(artist1);
 		ArrayList<String> collabs2 = this.findCollaborators(artist2);
 		ArrayList<String> sw2 = this.findSongwriters(artist2);
-
-		//if(collabs1 == null || collabs2 == null || sw1 == null || sw2 == null) return null;
-		collabs1.addAll(sw1);
-		collabs2.addAll(sw2);
 		
-		ArrayList<String> commAcqs = new ArrayList<String>();
+		ArrayList<String> commCollabs = new ArrayList<String>();
 		for(int i = 0; i < collabs1.size(); ++i){
-			for(int j = 0; j < collabs2.size(); ++j){
-				if(collabs1.get(i) == collabs2.get(j)) commAcqs.add(collabs1.get(i));			
-			}	
+			if(collabs2.contains(collabs1.get(i))) commCollabs.add(collabs1.get(i));		
 		}
+		ArrayList<String> commAcqs = new ArrayList<String>();
+		for(int i = 0; i < sw1.size(); ++i){
+			if(sw2.contains(sw1.get(i))) commAcqs.add(sw2.get(i));		
+		}
+		
+		for(int i = 0; i < commCollabs.size(); ++i){
+			if(!commAcqs.contains(commCollabs.get(i))) commAcqs.add(commCollabs.get(i));	
+		}		
 		
 		return commAcqs;				
 		
@@ -240,6 +257,8 @@ AND	Album.album_id = BelongsToAlbum.album_id
 		
                 System.err.println("\n----- ArtistsInGenre -----");
                 ArrayList<String> res = a2.findArtistsInGenre("Rock");
+                if(res == null){
+                	System.err.println("res set is empty");}
                 for (String s : res) {
                   System.err.println(s);
                 }
